@@ -1,4 +1,6 @@
-﻿namespace InvoiceManagerApi.Models.Sales
+﻿using InvoiceManagerApi.Models.BaseData;
+
+namespace InvoiceManagerApi.Models.Sales
 {
     public class SalesInvoiceHeader
     {
@@ -17,5 +19,7 @@
         public int CompanyId { get; set; }
         public DateTime SystemCreatedAt { get; set; }
         public DateTime SystemUpdatedAt { get; set; }
+        public Company Company { get; set; }
+        public List<SalesInvoiceLine> SalesInvoiceLines { get; set; }
     }
 }

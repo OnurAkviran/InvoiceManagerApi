@@ -23,6 +23,7 @@
         public int CompanyId { get; set; }
         public DateTime SystemCreatedAt { get; set; }
         public DateTime SystemUpdatedAt { get; set; }
+        public Company Company { get; set; }
 
     }
 }

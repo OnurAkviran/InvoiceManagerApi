@@ -3,7 +3,7 @@
     public class Item
     {
         public int ItemId { get; set; }
-        public int ItemCode { get; set; }
+        public string ItemCode { get; set; }
         public string Description { get; set; }
         public int BaseUnitOfMeasureId { get; set; }
         public string BaseUnitOfMeasureCode { get; set; }
@@ -20,5 +20,7 @@
         public int CompanyId { get; set; }
         public DateTime SystemCreatedAt { get; set; }
         public DateTime SystemUpdatedAt { get; set; }
+        public List<ItemUnitOfMeasure> BaseUnitOfMeasure { get; set; }
+        public Company Company { get; set; }
     }
 }

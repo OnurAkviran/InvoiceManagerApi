@@ -14,5 +14,6 @@
         public decimal Amount { get; set; }
         public  DateTime SystemCreatedAt { get; set; }
         public DateTime SystemUpdatedAt { get; set; }
+        public SalesInvoiceHeader SalesInvoiceHeader { get; set; }
     }
 }
