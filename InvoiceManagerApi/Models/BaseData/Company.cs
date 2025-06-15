@@ -1,4 +1,6 @@
-﻿using System.Data;
+﻿using InvoiceManagerApi.Models.Purchase;
+using InvoiceManagerApi.Models.Sales;
+using System.Data;
 
 namespace InvoiceManagerApi.Models.BaseData
 {
@@ -23,5 +25,15 @@ namespace InvoiceManagerApi.Models.BaseData
         public string Gln { get; set; }
         public DateTime SystemCreatedAt { get; set; }
         public DateTime SystemUpdatedAt { get; set; }
+        public List<SalesHeader> SalesHeaders { get; set; }
+        public List<PurchaseHeader> PurchaseHeaders { get; set; }
+        public List<SalesInvoiceHeader> SalesInvoiceHeaders { get; set; }
+        public List<PurchaseInvoiceHeader> PurchaseInvoiceHeaders { get; set; }
+        public List<ItemUnitOfMeasure> ItemUnitOfMeasures { get; set; }
+        public List<UnitOfMeasure> UnitOfMeasures { get; set; }
+        public List<Customer> Customers { get; set; }
+        public List<Item> Items { get; set; }
+        public List<Vendor> Vendors { get; set; }
+        
     }
 }

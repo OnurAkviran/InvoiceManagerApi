@@ -12,5 +12,7 @@ namespace InvoiceManagerApi.Models.BaseData
         public int CompanyId { get; set; }
         public DateTime SystemCreatedAt { get; set; }
         public DateTime SystemUpdatedAt { get; set; }
+        public Item Item { get; set; }
+        public Company Company { get; set; }
     }
 }

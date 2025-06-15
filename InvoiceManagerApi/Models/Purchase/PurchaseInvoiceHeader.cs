@@ -1,4 +1,5 @@
-﻿using static System.Runtime.InteropServices.JavaScript.JSType;
+﻿using InvoiceManagerApi.Models.BaseData;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace InvoiceManagerApi.Models.Purchase
 {
@@ -20,5 +21,7 @@ namespace InvoiceManagerApi.Models.Purchase
         public int CompanyId  { get; set; }
         public DateTime SystemCreatedAt  { get; set; }
         public DateTime SystemUpdatedAt { get; set; }
+        public Company Company { get; set; }
+        public List<PurchaseInvoiceLine> PurchaseInvoiceLines { get; set; }
     }
 }
