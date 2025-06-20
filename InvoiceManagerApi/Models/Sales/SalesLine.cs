@@ -1,4 +1,5 @@
 ﻿using InvoiceManagerApi.Models.BaseData;
+using System.ComponentModel.DataAnnotations;
 
 namespace InvoiceManagerApi.Models.Sales
 {
@@ -12,6 +13,7 @@ namespace InvoiceManagerApi.Models.Sales
 
         public int ItemId { get; set; }
 
+        [MaxLength(100)]
         public string? Description { get; set; }
 
         public int UnitOfMeasureId { get; set; }

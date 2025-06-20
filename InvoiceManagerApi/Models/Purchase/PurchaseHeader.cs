@@ -10,23 +10,28 @@ namespace InvoiceManagerApi.Models.Purchase
         public int VendorId { get; set; }
 
         [Required]
+        [MaxLength(100)]
         public string VendorName { get; set; } = null!;
 
         [Required]
+        [MaxLength(100)]
         public string VendorAddress { get; set; } = null!;
 
         [Required]
+        [MaxLength(30)]
         public string VendorCity { get; set; } = null!;
 
         public DateOnly OrderDate { get; set; }
 
         public DateOnly PostingDate { get; set; }
 
+        [MaxLength(100)]
         public string? PostingDescription { get; set; }
 
         [Required]
         public string Status { get; set; } = null!;
 
+        [MaxLength(10)]
         public string? CurrencyCode { get; set; }
 
         public decimal Amount { get; set; }
