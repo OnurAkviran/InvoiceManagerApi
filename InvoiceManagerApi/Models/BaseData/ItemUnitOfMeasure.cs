@@ -11,6 +11,7 @@ namespace InvoiceManagerApi.Models.BaseData
         public int ItemId { get; set; }
 
         [Required]
+        [MaxLength(10)]
         public string Code { get; set; } = null!;
 
         public int UnitOfMeasureId { get; set; }
