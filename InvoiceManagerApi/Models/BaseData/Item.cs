@@ -20,17 +20,17 @@ namespace InvoiceManagerApi.Models.BaseData
         [MaxLength(10)]
         public string? BaseUnitOfMeasureCode { get; set; }
 
-        public decimal? UnitPrice { get; set; }
+        public decimal UnitPrice { get; set; }
 
-        public decimal? UnitCost { get; set; }
+        public decimal UnitCost { get; set; }
 
         public decimal? GrossWeightBase { get; set; }
 
         public decimal? NetWeightBase { get; set; }
 
-        public decimal? QtyOnSalesOrder { get; set; }
+        public decimal QtyOnSalesOrder { get; set; }
 
-        public decimal? QtyOnPurchaseOrder { get; set; }
+        public decimal QtyOnPurchaseOrder { get; set; }
 
         public int SalesUnitOfMeasureId { get; set; }
 

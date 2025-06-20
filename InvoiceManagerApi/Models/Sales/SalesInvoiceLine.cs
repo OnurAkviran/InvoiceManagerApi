@@ -18,13 +18,23 @@ namespace InvoiceManagerApi.Models.Sales
 
         public int UnitOfMeasureId { get; set; }
 
+        [Required]
+        [MaxLength(10)]
+        public string UnitOfMeasureCode { get; set; } = null!;
+
         public decimal Quantity { get; set; }
+
+        public decimal QuantityBase { get; set; }
 
         public decimal UnitPrice { get; set; }
 
         public decimal UnitCost { get; set; }
 
         public decimal Amount { get; set; }
+
+        public decimal? LineNetWeight { get; set; }
+
+        public decimal? LineGrossWeight { get; set; }
 
         public DateTime SystemCreatedAt { get; set; }
 
