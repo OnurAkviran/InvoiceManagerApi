@@ -10,23 +10,28 @@ namespace InvoiceManagerApi.Models.Sales
         public int CustomerId { get; set; }
 
         [Required]
+        [MaxLength(100)]
         public string CustomerName { get; set; } = null!;
 
         [Required]
+        [MaxLength(100)]
         public string CustomerAddress { get; set; } = null!;
 
         [Required]
+        [MaxLength(30)]
         public string CustomerCity { get; set; } = null!;
 
         public DateOnly OrderDate { get; set; }
 
         public DateOnly PostingDate { get; set; }
 
+        [MaxLength(100)]
         public string? PostingDescription { get; set; }
 
         [Required]
         public string Status { get; set; } = null!;
 
+        [MaxLength(10)]
         public string? CurrencyCode { get; set; }
 
         public decimal Amount { get; set; }

@@ -9,12 +9,15 @@ namespace InvoiceManagerApi.Models.BaseData
         public int ItemId { get; set; }
 
         [Required]
+        [MaxLength(20)]
         public string ItemCode { get; set; } = null!;
 
+        [MaxLength(100)]
         public string? Description { get; set; }
 
         public int BaseUnitOfMeasureId { get; set; }
 
+        [MaxLength(10)]
         public string? BaseUnitOfMeasureCode { get; set; }
 
         public decimal? UnitPrice { get; set; }
@@ -31,10 +34,12 @@ namespace InvoiceManagerApi.Models.BaseData
 
         public int SalesUnitOfMeasureId { get; set; }
 
+        [MaxLength(10)]
         public string? SalesUnitOfMeasureCode { get; set; }
 
         public int PurchaseUnitOfMeasureId { get; set; }
 
+        [MaxLength(10)]
         public string? PurchaseUnitOfMeasureCode { get; set; }
 
         public int CompanyId { get; set; }
