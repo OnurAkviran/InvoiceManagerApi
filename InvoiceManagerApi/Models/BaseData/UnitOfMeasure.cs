@@ -22,6 +22,5 @@ namespace InvoiceManagerApi.Models.BaseData
         public Company? Company { get; set; }
 
         public List<ItemUnitOfMeasure> ItemUnitOfMeasures { get; set; } = new();
-
     }
 }
