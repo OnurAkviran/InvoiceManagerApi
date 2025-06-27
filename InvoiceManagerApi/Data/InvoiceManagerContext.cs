@@ -38,5 +38,16 @@ namespace InvoiceManagerApi.Data
         public DbSet<SalesInvoiceHeader> SalesInvoiceHeaders { get; set; }
 
         public DbSet<SalesInvoiceLine> SalesInvoiceLines { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            foreach (var entityType in modelBuilder.Model.GetEntityTypes())
+            {
+                foreach (var foreignKey in entityType.GetForeignKeys())
+                {
+                    foreignKey.DeleteBehavior = DeleteBehavior.Restrict;
+                }
+            }
+        }
     }
 }
