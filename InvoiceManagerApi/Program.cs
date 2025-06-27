@@ -1,5 +1,7 @@
+#pragma warning disable S6966 // Awaitable method should be used
 using InvoiceManagerApi.Data;
 using Microsoft.EntityFrameworkCore;
+using Scalar.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,7 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 DotNetEnv.Env.Load();
 var connectionString = Environment.GetEnvironmentVariable("CONNECTION_STRING");
 
-builder.Services.AddDbContext<InvoiceManagerContext>(options  =>
+builder.Services.AddDbContext<InvoiceManagerContext>(options =>
     options.UseSqlServer(connectionString));
 
 builder.Services.AddControllers();
@@ -20,6 +22,13 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
+    app.MapScalarApiReference(options =>
+    {
+        options
+        .WithTitle("Invoice Manager Api")
+        .WithTheme(ScalarTheme.DeepSpace)
+        .WithDefaultHttpClient(ScalarTarget.CSharp, ScalarClient.HttpClient);
+    });
 }
 
 app.UseHttpsRedirection();
