@@ -104,7 +104,7 @@ namespace InvoiceManagerApi.DTOs
                 HomePage = this.HomePage,
                 IBAN = this.IBAN,
                 Gln = this.Gln,
-                SystemCreatedAt = DateTime.Now
+                SystemCreatedAt = DateTime.UtcNow
             };
         }
     }
