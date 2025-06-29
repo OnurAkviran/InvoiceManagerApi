@@ -83,7 +83,7 @@ namespace InvoiceManagerApi.DTOs
                 Gln = company.Gln
             };
         }
-        
+
         public Company ToEntity()
         {
             return new Company

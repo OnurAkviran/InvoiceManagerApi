@@ -82,5 +82,7 @@ namespace InvoiceManagerApi.Models.BaseData
         public List<Item> Items { get; set; } = new();
 
         public List<Vendor> Vendors { get; set; } = new();
+
+        public List<User> Users { get; set; } = new();
     }
 }

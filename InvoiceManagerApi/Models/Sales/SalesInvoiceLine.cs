@@ -1,5 +1,5 @@
-﻿using InvoiceManagerApi.Models.BaseData;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
+using InvoiceManagerApi.Models.BaseData;
 
 namespace InvoiceManagerApi.Models.Sales
 {

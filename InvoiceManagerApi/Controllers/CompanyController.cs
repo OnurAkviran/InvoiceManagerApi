@@ -36,7 +36,8 @@ namespace InvoiceManagerApi.Controllers
                 .AsNoTracking()
                 .FirstOrDefaultAsync(c => c.CompanyId == id);
 
-            if (company == null) {
+            if (company == null)
+            {
                 return NotFound();
             }
 
