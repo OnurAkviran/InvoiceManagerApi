@@ -377,7 +377,7 @@ namespace InvoiceManagerApi.Migrations
 
                     b.HasIndex("CompanyId");
 
-                    b.ToTable("User");
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("InvoiceManagerApi.Models.BaseData.Vendor", b =>

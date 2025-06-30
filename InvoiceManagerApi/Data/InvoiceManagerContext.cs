@@ -39,6 +39,8 @@ namespace InvoiceManagerApi.Data
 
         public DbSet<SalesInvoiceLine> SalesInvoiceLines { get; set; }
 
+        public DbSet<User> Users { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             foreach (var entityType in modelBuilder.Model.GetEntityTypes())

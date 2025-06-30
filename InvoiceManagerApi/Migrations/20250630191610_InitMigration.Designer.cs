@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace InvoiceManagerApi.Migrations
 {
     [DbContext(typeof(InvoiceManagerContext))]
-    [Migration("20250630185001_UserAuthentication")]
-    partial class UserAuthentication
+    [Migration("20250630191610_InitMigration")]
+    partial class InitMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -380,7 +380,7 @@ namespace InvoiceManagerApi.Migrations
 
                     b.HasIndex("CompanyId");
 
-                    b.ToTable("User");
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("InvoiceManagerApi.Models.BaseData.Vendor", b =>
