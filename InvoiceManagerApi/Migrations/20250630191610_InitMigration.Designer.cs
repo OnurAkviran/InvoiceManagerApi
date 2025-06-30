@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace InvoiceManagerApi.Migrations
 {
     [DbContext(typeof(InvoiceManagerContext))]
-    [Migration("20250627131311_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20250630191610_InitMigration")]
+    partial class InitMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -339,6 +339,48 @@ namespace InvoiceManagerApi.Migrations
                     b.HasIndex("CompanyId");
 
                     b.ToTable("UnitOfMeasures");
+                });
+
+            modelBuilder.Entity("InvoiceManagerApi.Models.BaseData.User", b =>
+                {
+                    b.Property<int>("UserId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserId"));
+
+                    b.Property<int>("CompanyId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasMaxLength(80)
+                        .HasColumnType("nvarchar(80)");
+
+                    b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("PasswordHash")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("SystemCreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("SystemUpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("UserId");
+
+                    b.HasIndex("CompanyId");
+
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("InvoiceManagerApi.Models.BaseData.Vendor", b =>
@@ -1057,6 +1099,17 @@ namespace InvoiceManagerApi.Migrations
                     b.Navigation("Company");
                 });
 
+            modelBuilder.Entity("InvoiceManagerApi.Models.BaseData.User", b =>
+                {
+                    b.HasOne("InvoiceManagerApi.Models.BaseData.Company", "Company")
+                        .WithMany("Users")
+                        .HasForeignKey("CompanyId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("Company");
+                });
+
             modelBuilder.Entity("InvoiceManagerApi.Models.BaseData.Vendor", b =>
                 {
                     b.HasOne("InvoiceManagerApi.Models.BaseData.Company", "Company")
@@ -1281,6 +1334,8 @@ namespace InvoiceManagerApi.Migrations
                     b.Navigation("SalesInvoiceHeaders");
 
                     b.Navigation("UnitOfMeasures");
+
+                    b.Navigation("Users");
 
                     b.Navigation("Vendors");
                 });
