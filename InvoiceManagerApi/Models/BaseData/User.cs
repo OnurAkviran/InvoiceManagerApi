@@ -20,7 +20,7 @@ namespace InvoiceManagerApi.Models.BaseData
         [MaxLength(80)]
         public string Email { get; set; } = null!;
 
-        public int CompanyId { get; set; }
+        public int? CompanyId { get; set; }
 
         public DateTime SystemCreatedAt { get; set; }
 
