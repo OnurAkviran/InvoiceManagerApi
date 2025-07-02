@@ -12,6 +12,10 @@ namespace InvoiceManagerApi.Models.BaseData
         [Required]
         public string PasswordHash { get; set; } = null!;
 
+        public string Role { get; set; } = string.Empty;
+
+        public string? RefreshToken { get; set; }
+
         [Required]
         [MaxLength(100)]
         public string FullName { get; set; } = null!;
