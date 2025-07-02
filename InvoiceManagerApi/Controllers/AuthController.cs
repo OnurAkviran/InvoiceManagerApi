@@ -1,15 +1,7 @@
 ﻿#pragma warning disable SA1101 // Prefix local calls with this
 using InvoiceManagerApi.DTOs;
-using InvoiceManagerApi.Models.BaseData;
 using InvoiceManagerApi.Services;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace InvoiceManagerApi.Controllers
 {
@@ -31,15 +23,28 @@ namespace InvoiceManagerApi.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<ActionResult<string>> Login(LoginDto request)
+        public async Task<ActionResult<TokenResponseDto>> Login(LoginDto request)
         {
-            var token = await authService.LoginAsync(request);
-            if(token == null)
+            var response = await authService.LoginAsync(request);
+            if(response == null)
             {
                 return BadRequest("Invalid username or password");
             }
 
-            return Ok(token);
+            return Ok(response);
+        }
+
+        [HttpPost("refresh-token")]
+        public async Task<ActionResult<TokenResponseDto>> RefreshToken(RefreshTokenRequestDto request)
+        {
+            var result = await authService.RefreshTokensAsync(request);
+
+            if (result == null || result.AccessToken == null || result.RefreshToken == null)
+            {
+                return Unauthorized("invalidRefreshToken");
+            }
+
+            return result;
         }
     }
 }

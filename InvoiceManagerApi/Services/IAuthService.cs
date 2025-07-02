@@ -7,6 +7,8 @@ namespace InvoiceManagerApi.Services
     {
         Task<User?> RegisterAsync(UserDto request);
 
-        Task<string?> LoginAsync(LoginDto request);
+        Task<TokenResponseDto?> LoginAsync(LoginDto request);
+
+        Task<TokenResponseDto?> RefreshTokensAsync(RefreshTokenRequestDto request);
     }
 }
