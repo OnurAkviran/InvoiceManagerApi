@@ -16,6 +16,8 @@ namespace InvoiceManagerApi.Models.BaseData
 
         public string? RefreshToken { get; set; }
 
+        public DateTime? RefreshTokenExpireDateTime { get; set; }
+
         [Required]
         [MaxLength(100)]
         public string FullName { get; set; } = null!;
