@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace InvoiceManagerApi.DTOs
+namespace InvoiceManagerApi.DTOs.AuthDtos
 {
     public class LoginDto
     {

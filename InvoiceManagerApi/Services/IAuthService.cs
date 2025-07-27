@@ -1,4 +1,5 @@
-﻿using InvoiceManagerApi.DTOs;
+﻿using InvoiceManagerApi.DTOs.AuthDtos;
+using InvoiceManagerApi.DTOs.BaseDataDtos;
 using InvoiceManagerApi.Models.BaseData;
 
 namespace InvoiceManagerApi.Services

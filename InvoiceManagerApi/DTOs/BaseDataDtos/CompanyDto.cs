@@ -4,7 +4,7 @@ using InvoiceManagerApi.Models.Purchase;
 using InvoiceManagerApi.Models.Sales;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
-namespace InvoiceManagerApi.DTOs
+namespace InvoiceManagerApi.DTOs.BaseDataDtos
 {
     public class CompanyDto
     {
@@ -88,22 +88,22 @@ namespace InvoiceManagerApi.DTOs
         {
             return new Company
             {
-                Name = this.Name,
-                DisplayName = this.DisplayName,
-                Address = this.Address,
-                City = this.City,
-                PostCode = this.PostCode,
-                CountryRegionCode = this.CountryRegionCode,
-                PhoneNo = this.PhoneNo,
-                FaxNo = this.FaxNo,
-                BankName = this.BankName,
-                BankAccountNo = this.BankAccountNo,
-                VatRegistrationNo = this.VatRegistrationNo,
-                RegistrationNo = this.RegistrationNo,
-                Email = this.Email,
-                HomePage = this.HomePage,
-                IBAN = this.IBAN,
-                Gln = this.Gln,
+                Name = Name,
+                DisplayName = DisplayName,
+                Address = Address,
+                City = City,
+                PostCode = PostCode,
+                CountryRegionCode = CountryRegionCode,
+                PhoneNo = PhoneNo,
+                FaxNo = FaxNo,
+                BankName = BankName,
+                BankAccountNo = BankAccountNo,
+                VatRegistrationNo = VatRegistrationNo,
+                RegistrationNo = RegistrationNo,
+                Email = Email,
+                HomePage = HomePage,
+                IBAN = IBAN,
+                Gln = Gln,
                 SystemCreatedAt = DateTime.UtcNow
             };
         }

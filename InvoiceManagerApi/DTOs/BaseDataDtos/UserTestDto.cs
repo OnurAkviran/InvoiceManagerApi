@@ -1,15 +1,19 @@
 ﻿using InvoiceManagerApi.Models.BaseData;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 
-namespace InvoiceManagerApi.DTOs
+namespace InvoiceManagerApi.DTOs.BaseDataDtos
 {
-    public class UserDto
+    [Route("api/[controller]")]
+    [ApiController]
+    public class UserTestDto : ControllerBase
     {
         [Required]
         public string UserName { get; set; } = null!;
 
         [Required]
-        public string Password { get; set; } = null!;
+        public string PasswordHash { get; set; } = null!;
 
         [Required]
         [MaxLength(100)]
@@ -19,9 +23,11 @@ namespace InvoiceManagerApi.DTOs
         [MaxLength(80)]
         public string Email { get; set; } = null!;
 
-        public static User ToEntity(UserDto request, string passwordHash)
+        public DateTime SystemCreatedAt { get; set; }
+
+        public static UserTestDto FromEntity(User request, string passwordHash)
         {
-            return new User
+            return new UserTestDto
             {
                 UserName = request.UserName,
                 FullName = request.FullName,

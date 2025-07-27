@@ -1,5 +1,6 @@
 ﻿#pragma warning disable SA1101 // Prefix local calls with this
-using InvoiceManagerApi.DTOs;
+using InvoiceManagerApi.DTOs.AuthDtos;
+using InvoiceManagerApi.DTOs.BaseDataDtos;
 using InvoiceManagerApi.Services;
 using Microsoft.AspNetCore.Mvc;
 
