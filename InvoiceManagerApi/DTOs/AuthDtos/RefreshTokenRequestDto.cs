@@ -1,4 +1,4 @@
-﻿namespace InvoiceManagerApi.DTOs
+﻿namespace InvoiceManagerApi.DTOs.AuthDtos
 {
     public class RefreshTokenRequestDto
     {

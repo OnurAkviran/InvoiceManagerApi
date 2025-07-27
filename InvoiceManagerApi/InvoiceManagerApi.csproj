@@ -28,4 +28,11 @@
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.12.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\SalesControllers\" />
+    <Folder Include="Controllers\PurchaseControllers\" />
+    <Folder Include="DTOs\SalesDtos\" />
+    <Folder Include="DTOs\PurchaseDtos\" />
+  </ItemGroup>
+
 </Project>

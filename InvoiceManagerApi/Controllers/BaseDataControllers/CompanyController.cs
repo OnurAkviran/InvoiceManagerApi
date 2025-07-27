@@ -1,11 +1,12 @@
 ﻿#pragma warning disable SA1101 // Prefix local calls with this
 using InvoiceManagerApi.Data;
-using InvoiceManagerApi.DTOs;
+using InvoiceManagerApi.DTOs.BaseDataDtos;
 using InvoiceManagerApi.Models.BaseData;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace InvoiceManagerApi.Controllers
+namespace InvoiceManagerApi.Controllers.BaseDataControllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -46,6 +47,7 @@ namespace InvoiceManagerApi.Controllers
             return Ok(response);
         }
 
+        [Authorize]
         [HttpPost]
         public async Task<ActionResult<CompanyDto>> PostCompany(CompanyDto companyDto)
         {

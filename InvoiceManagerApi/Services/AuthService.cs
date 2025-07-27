@@ -3,7 +3,8 @@ using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using InvoiceManagerApi.Data;
-using InvoiceManagerApi.DTOs;
+using InvoiceManagerApi.DTOs.AuthDtos;
+using InvoiceManagerApi.DTOs.BaseDataDtos;
 using InvoiceManagerApi.Models.BaseData;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -38,12 +39,7 @@ namespace InvoiceManagerApi.Services
         {
             var user = await _db.Users.FirstOrDefaultAsync(u => u.UserName == request.UserName);
 
-            bool isUserNull = user == null;
-            bool isPasswordVerificationFailed = new PasswordHasher<User>()
-                .VerifyHashedPassword(user, user.PasswordHash, request.Password)
-                == PasswordVerificationResult.Failed;
-
-            if (isUserNull || isPasswordVerificationFailed)
+            if (user == null || new PasswordHasher<User>().VerifyHashedPassword(user, user.PasswordHash, request.Password) == PasswordVerificationResult.Failed)
             {
                 return null;
             }
@@ -55,8 +51,8 @@ namespace InvoiceManagerApi.Services
         {
             return new TokenResponseDto
             {
-                AccessToken = CreateToken(user),
-                RefreshToken = await this.GenerateAndSaveRefreshTokenAsync(user)
+                AccessToken = CreateToken(user!),
+                RefreshToken = await this.GenerateAndSaveRefreshTokenAsync(user!)
             };
         }
 
